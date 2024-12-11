@@ -1,14 +1,17 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+package Services.Removing;
+import java.io.*;
+// import java.io.BufferedWriter;
+// import java.io.File;
+// import java.io.FileReader;
+// import java.io.FileWriter;
+// import java.io.IOException;
 import java.util.ArrayList;
+
+import Services.Services;
 
 public class RemoveCus {
     public static void remove(int id) {
-        File file = new File("bank_db.txt");
+        File file = new File("../../DB/customer_db.txt");
         ArrayList<String> lines = new ArrayList<>();
 
         // Step 1: Read all lines from the file, excluding the one with the given ID
@@ -31,7 +34,7 @@ public class RemoveCus {
             System.out.println("Lines to be written back to the file:");
             for (String line : lines) {
                 System.out.println(line); // Output to console for debugging
-                writer.write(line);
+                writer.append(line);
                 writer.newLine();
             }
         } catch (IOException e) {

@@ -1,30 +1,32 @@
+import java.security.Provider.Service;
 import java.util.Scanner;
+import Services.*;
 
 public class Main {
 
-    public static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        LoadEx.loadExistingCustomer();
-
+   
+        Scanner input = new Scanner(System.in);
 
         while(true){
-            System.out.println("Enter 1 to add new Customer\nEnter 2 to display the acc.\nEnter 3 to remove the acc.");
+            System.out.println("Enter 1 for Admin Login\nEnter 2 to Customer Login.\nEnter 3  Exit.");
             int in = input.nextInt();
 
             switch (in) {
-                case 1:
-                Services.addAcc();
+                case 1: 
+                
+                Services.adminLogin();
                     
-                break;
-                case 2:
-                Services.displayAccount();
-                    
-                break;
+                 break;
+                case 2:{
+    
+                }
+           
+                  break;
+              
                 case 3:
-                Services.removeAccount();
-                    
-                break;
+                  return;
             
             
             }

@@ -1,3 +1,7 @@
+
+package Services.Adding;
+
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -6,11 +10,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+import Services.Customer;
+import Services.Services;
+
+
+
+
 public class AddCus {
     public static void addCustomer(){
-        Scanner input = Main.input;
+        Scanner input = Services.input;
 
-        System.out.print("Enter Your Name: ");
+        System.out.print("Enter Customers Name: ");
         String name = input.next();
         System.out.print("\nset password for your Account: ");
         String password = input.next();
@@ -43,7 +53,7 @@ public class AddCus {
 
         Customer obj =null;
        
-        rePassword = encyrpt(rePassword);
+        // rePassword = encyrpt(rePassword);
     
         
         if(Services.customers.size() > 0){
@@ -102,16 +112,16 @@ public class AddCus {
 
 
     public static void writeFile(Customer obj) {
-           File file = new File("bank_db.txt");
+           File file = new File("../../DB/customer_db.txt");
 
         try (FileWriter fileWriter = new FileWriter(file,true);
              BufferedWriter writer = new BufferedWriter(fileWriter)) {
 
             
-         writer.append(obj.getCustomerId() +" " +
+         writer.write(obj.getCustomerId() +" " +
           obj.getAccNo()+" "+obj.getName()+" "+
           obj.getBalance() + " "
-         +obj.getBalance());
+         +obj.getPassword());
 
         writer.newLine();
       
